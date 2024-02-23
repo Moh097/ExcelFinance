@@ -45,5 +45,23 @@ namespace ReadDataFromExcel
         }
 
 
+
+        public MemberDto GetMemberFromName(string name)
+        {
+            foreach (MemberDto member in Members)
+            {
+                if (member.Name == name) return member;
+            }
+            return new MemberDto();
         }
+
+        public MemberDto GetMemberFromId(string id)
+        {
+            foreach (MemberDto member in Members)
+            {
+                if (member.Id == id) return member;
+            }
+            return null;
+        }
+    }
     }
