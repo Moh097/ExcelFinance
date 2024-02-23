@@ -13,28 +13,31 @@ namespace ImageOperations
 {
     public class ImageReader
     {
-        const float nameFONT_SIZE = 22;
         const float restFONT_SIZE = 12;
-        const float idFONT_SIZE = 14;
-        const float MEMBERSHIP_END_X = 700f;
-        const float MEMBERSHIP_Y = 1270f;
-        const float ADDRESS_END_X = 620f;
-        const float ADDRESS_Y = 1392f;
-        const float JOIN_END_X = 620f;
-        const float JOIN_Y = 1517f;
-        const float ID_X = 500f;
-        const float ID_Y = 1774f;
-        const float IMAGE_X = 295f;
-        const float IMAGE_Y = 264f;
-        const float NAME_X = 420f;
+
+        const float ADDRESS_END_X = 403f;
+        const float ADDRESS_Y = 170f;
+        const float Date_END_X = 607f;
+        const float Date_Y = 170f;
+        const float NAME_X = 607f;
+        const float NAME_Y = 208f;
+        const float year_END_X = 607f;
+        const float year_Y = 170f;
+        const float payment_END_X = 607f;
+        const float payment_Y = 206f;
+        const float totalcost_END_X = 608f;
+        const float totalcost_Y = 240f;
+
+
+
         float nameX;
-        const float NAME_Y = 995f;
-        float membershipX;
         float adressX;
-        float joinX;
+        float DateX;
+        float totalcostX;
+        float paymentX;
+        float yearX;
         float nameWidth;
-        const float PHOTO_WIDTH = 543; // Adjust the photo width as needed
-        const float PHOTO_HEIGHT = 628; // Adjust the photo height as needed
+
 
         private static string path;
         private static Image image;
@@ -63,7 +66,6 @@ namespace ImageOperations
             }
 
             path = Path.GetFullPath(Path.Combine(exeDir, "Template.jpg"));
-            defImagePath = Path.GetFullPath(Path.Combine(exeDir, "Default.jpeg"));
             image = Bitmap.FromFile(path);
 
             outputDirectory = Path.GetFullPath(Path.Combine(exeDir, "IMAGES"));
@@ -132,40 +134,29 @@ namespace ImageOperations
             {
                 using (Graphics graphics = Graphics.FromImage(clonedImage))
                 {
-                    Font nameFont = new Font(nameFontPath, nameFONT_SIZE);
-                    Font IDFont = new Font(IDFontPath, idFONT_SIZE);
                     Font restFont = new Font(restFontPath, restFONT_SIZE);
-
-                    SizeF membershipSize = graphics.MeasureString(memberDto.Membership, restFont);
                     SizeF adressSize = graphics.MeasureString(memberDto.Address, restFont);
-                    SizeF joinSize = graphics.MeasureString(memberDto.JoinDate, restFont);
+                    SizeF DateSize = graphics.MeasureString(memberDto.Date, restFont);
+                    SizeF totalcostSize = graphics.MeasureString(memberDto.TotalCost, restFont);
+                    SizeF paymentSize = graphics.MeasureString(memberDto.Payment, restFont);
+                    SizeF nameSize = graphics.MeasureString(memberDto.Name, restFont);
+                    SizeF yearSize = graphics.MeasureString(Parameters.year, restFont);
 
-                    membershipX = MEMBERSHIP_END_X - membershipSize.Width;
                     adressX = ADDRESS_END_X - adressSize.Width;
-                    joinX = JOIN_END_X - joinSize.Width;
-                    nameWidth = graphics.MeasureString(memberDto.Name, nameFont).Width;
-                    nameX = 600 - (nameWidth / 2); // Adjust as needed
+                    DateX = Date_END_X - DateSize.Width;
+                    totalcostX = totalcost_END_X - totalcostSize.Width;
+                    paymentX= payment_END_X - paymentSize.Width;
+                    nameX = NAME_X - nameSize.Width;
+                    yearX= year_END_X - yearSize.Width;
 
-                    graphics.DrawString(memberDto.Membership, restFont, brush, membershipX, MEMBERSHIP_Y);
                     graphics.DrawString(memberDto.Address, restFont, brush, adressX, ADDRESS_Y);
-                    graphics.DrawString(memberDto.JoinDate, restFont, brush, joinX, JOIN_Y);
-                    graphics.DrawString(memberDto.Id, IDFont, Brushes.White, ID_X, ID_Y);
-                    graphics.DrawString(memberDto.Name, nameFont, brush, nameX, NAME_Y);
+                    graphics.DrawString(memberDto.Date, restFont, brush, DateX, Date_Y);
+                    graphics.DrawString(memberDto.Name, restFont, brush, nameX, NAME_Y);
+                    graphics.DrawString(memberDto.TotalCost, restFont, brush, totalcostX, totalcost_Y);
+                    graphics.DrawString(memberDto.Payment, restFont, brush, paymentX, payment_Y);
+                    graphics.DrawString(Parameters.year, restFont, brush, yearX, year_Y);
 
-                    if (memberDto.Photo != null)
-                    {
-                        RectangleF photoRect = new RectangleF(IMAGE_X, IMAGE_Y, PHOTO_WIDTH, PHOTO_HEIGHT);
-                        graphics.DrawImage(memberDto.Photo, photoRect);
-                    }
-                    else
-                    {
-                        // Load and draw the default image
-                        using (Image defaultImage = Image.FromFile(defImagePath))
-                        {
-                            RectangleF photoRect = new RectangleF(IMAGE_X, IMAGE_Y, PHOTO_WIDTH, PHOTO_HEIGHT);
-                            graphics.DrawImage(defaultImage, photoRect);
-                        }
-                    }
+
                 }
 
                 // Save the new image

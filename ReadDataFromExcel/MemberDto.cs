@@ -7,19 +7,20 @@ namespace ReadDataFromExcel
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string Membership { get; set; }
-        public Image Photo { get; set; }
+        public string TotalCost { get; set; }
         public string Address { get; set; }
-        public string JoinDate { get; set; }
+        public string Date { get; set; }
+        public string Payment { get; set; }
+
         public MemberDto() { }
-        public MemberDto(string id, string name, Image photo, string membership, string address, string joinDate)
+        public MemberDto(string id, string name, string address, string totalcost, string date, string payment)
         {
             Id = id;
             Name = name;
-            Photo = photo;
-            Membership = membership;
+            TotalCost = totalcost;
             Address = address;
-            JoinDate = joinDate;
+            Date = date;
+            Payment = payment;
         }
     }
 }
