@@ -65,7 +65,7 @@ namespace ImageOperations
                 throw new InvalidOperationException("Unable to determine the application directory.");
             }
 
-            path = Path.GetFullPath(Path.Combine(exeDir, "Template.jpg"));
+            path = Path.GetFullPath(Path.Combine(exeDir, "Template_Finance.jpg"));
             image = Bitmap.FromFile(path);
 
             outputDirectory = Path.GetFullPath(Path.Combine(exeDir, "IMAGES"));
@@ -76,14 +76,13 @@ namespace ImageOperations
             restFontPath = Path.GetFullPath(Path.Combine(exeDir, "Fonts\\Madani Arabic Regular.ttf"));
         }
 
-        public void SetTextAndPhotoData()
+        public void SetTextAndPhotoData(MemberDto member)
         {
             ExcelReader reader = new ExcelReader();
             //string cs = Parameters.WriteToLog("SetTextAndPhotoData, " + Parameters.excelFilePath);
            
-            foreach (MemberDto memberDto in reader.Members)
-            {
-                string pdfFileName = Path.Combine(pdfFolder, $"{memberDto.Name}.pdf");
+            
+                string pdfFileName = Path.Combine(pdfFolder, $"{member.Name}.pdf");
 
                 // Create a new document for each member
                 using (Document document = new Document(PageSize.A4)) // Use A4 size (adjust if needed)
@@ -96,8 +95,8 @@ namespace ImageOperations
                         document.Open();
 
                         // Add content here
-                        CreateAndSaveImage(memberDto);
-                        AddImageToPdf(memberDto, document, writer);
+                        CreateImage(member);
+                        AddImageToPdf(member, document, writer);
 
                         // Close the document after adding content
                         document.Close();
@@ -107,12 +106,12 @@ namespace ImageOperations
                         // Handle or log the exception here
                         Console.WriteLine("An error occurred: " + ex.Message);
                     }
-                }
+                
             }
         }
 
 
-        public void CreateAndSaveImage(MemberDto memberDto)
+        public void CreateImage(MemberDto memberDto)
         {
             // Construct the unique filename for the member
             string uniqueFilename = Path.Combine(outputDirectory, $"{memberDto.Name}.jpg");

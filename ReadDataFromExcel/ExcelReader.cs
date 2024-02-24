@@ -1,7 +1,9 @@
 ﻿    using ClosedXML.Excel;
     using ClosedXML.Excel.Drawings;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System.Drawing;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 namespace ReadDataFromExcel
 {
@@ -15,8 +17,7 @@ namespace ReadDataFromExcel
             public List<MemberDto> Members = new();
             public void ReadData()
             {
-
-                int counter = 2;
+            //please
                 using (var workbook = new XLWorkbook(Parameters.excelFilePath))
                 {
                     string ID;
@@ -32,13 +33,14 @@ namespace ReadDataFromExcel
            
                 foreach (var row in sheet.RowsUsed())
                     {
-                            ID = row.Cell(1).Value.ToString();
-                            Name = row.Cell(2).Value.ToString();
-                            Address = $"{row.Cell(4).Value}-{row.Cell(5).Value}";
-                            TotalCost= row.Cell(10).Value.ToString();
-                             Date= row.Cell(8).Value.ToString();
-                             Payment = row.Cell(10).Value.ToString();
-                    counter++;
+                        ID = row.Cell(1).Value.ToString();
+                        Name = row.Cell(2).Value.ToString();
+                        Address = $"{row.Cell(4).Value}-{row.Cell(5).Value}";
+                        TotalCost= row.Cell(10).Value.ToString();
+                        Date= row.Cell(8).Value.ToString();
+                        Payment = row.Cell(10).Value.ToString();
+
+                        Members.Add(new MemberDto(ID, Name, Address, TotalCost, Date, Payment));
                 }
               
             }

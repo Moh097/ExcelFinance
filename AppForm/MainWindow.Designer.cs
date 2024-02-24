@@ -65,10 +65,11 @@
             label1.AutoSize = true;
             label1.Location = new Point(40, 240);
             label1.Name = "label1";
-            label1.Size = new Size(169, 20);
+            label1.Size = new Size(229, 20);
             label1.TabIndex = 4;
-            label1.Text = "Please enter the ID here:";
+            label1.Text = "Please enter the Member ID here:";
             label1.Visible = false;
+            label1.Click += label1_Click;
             // 
             // btnPrint
             // 
@@ -116,7 +117,7 @@
             // 
             cmbServices.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbServices.FormattingEnabled = true;
-            cmbServices.Items.AddRange(new object[] { "Print only for Takween Memembers", "Print by ID", "Print Kun Memembers" });
+            cmbServices.Items.AddRange(new object[] { "الاردن", "تكوينية فلسطين", "المغرب العربي", "تكوينية سيدرا", "التكوينية المختلطة ( تقوى)", "تكوينية تركيا (اسيل)" });
             cmbServices.Location = new Point(40, 185);
             cmbServices.Name = "cmbServices";
             cmbServices.Size = new Size(238, 28);
@@ -129,10 +130,11 @@
             label3.AutoSize = true;
             label3.Location = new Point(40, 163);
             label3.Name = "label3";
-            label3.Size = new Size(179, 20);
+            label3.Size = new Size(157, 20);
             label3.TabIndex = 11;
-            label3.Text = "Please choose the service:";
+            label3.Text = "Please choose the city:";
             label3.Visible = false;
+            label3.Click += label3_Click;
             // 
             // MainWindow
             // 

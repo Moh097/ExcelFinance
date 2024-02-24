@@ -5,7 +5,7 @@ namespace AppForm
 {
     public partial class MainWindow : Form
     {
-        
+
         ExcelReader excelReader = new ExcelReader();
         ImageReader image = new ImageReader();
         public MainWindow()
@@ -16,11 +16,15 @@ namespace AppForm
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you wanna print for this ID?", "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Are you sure you wanna print for this Memeber?", "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
             if (dr == DialogResult.Yes)
             {
                 MemberDto memberDto = excelReader.GetMemberFromId(txtID.Text);
-                image.CreateAndSaveImage(memberDto);
+
+                ImageReader imageReader = new ImageReader();
+                imageReader.SetTextAndPhotoData(memberDto);
+                MessageBox.Show("The process is done", "Done", MessageBoxButtons.OK, MessageBoxIcon.None);
 
                 if (memberDto == null)
                 {
@@ -33,19 +37,20 @@ namespace AppForm
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
-           // string cs = Parameters.WriteToLog("btnBrowse_Click, " + Parameters.excelFilePath);
+            // string cs = Parameters.WriteToLog("btnBrowse_Click, " + Parameters.excelFilePath);
             try
             {
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
                     txtUpload.Text = fileDialog.FileName;
 
-                 //   string cs1 = Parameters.WriteToLog("btnBrowse_Click, " + Parameters.excelFilePath);
+                    //   string cs1 = Parameters.WriteToLog("btnBrowse_Click, " + Parameters.excelFilePath);
                     Parameters.excelFilePath = fileDialog.FileName;
                     excelReader.ReadData(); // You might want to re-read data here if needed.
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 //cs = Parameters.WriteToLog("btnBrowse_Click, Exception " + ex.Message.ToString());
             }
             finally
@@ -61,27 +66,14 @@ namespace AppForm
             txtID.Visible = false;
             btnPrint.Visible = false;
 
-            if (selectedOption == "Print by ID")
+            if (selectedOption == selectedOption)
             {
                 label1.Visible = true;
                 txtID.Visible = true;
                 btnPrint.Visible = true;
+                Parameters.city = cmbServices.SelectedItem.ToString();
+                excelReader.ReadData();
 
-
-            }
-            else if (selectedOption == "Print only for Takween Memembers")
-            {
-
-                if (MessageBox.Show("Are you sure you wanna save all Takween Memebership cards?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    ImageReader imageReader = new ImageReader();
-                    imageReader.SetTextAndPhotoData();
-                    MessageBox.Show("The process is done", "Done", MessageBoxButtons.OK, MessageBoxIcon.None);
-                }
-            }
-            else if (selectedOption == "Print Kun Memembers")
-            {
-                MessageBox.Show("This option is not available Yet!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -98,5 +90,19 @@ namespace AppForm
             }
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
