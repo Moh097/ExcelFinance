@@ -13,7 +13,7 @@ namespace AppForm
             InitializeComponent();
             this.FormClosing += Form_Closing;
         }
-
+        
         private void btnPrint_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Are you sure you wanna print for this Memeber?", "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
