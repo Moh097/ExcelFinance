@@ -13,20 +13,20 @@ namespace ImageOperations
 {
     public class ImageReader
     {
-        const float restFONT_SIZE = 12;
+        const float restFONT_SIZE = 9;
 
-        const float ADDRESS_END_X = 403f;
-        const float ADDRESS_Y = 170f;
+        const float ADDRESS_END_X = 402f;
+        const float ADDRESS_Y = 160f;
         const float Date_END_X = 607f;
-        const float Date_Y = 170f;
-        const float NAME_X = 607f;
-        const float NAME_Y = 208f;
-        const float year_END_X = 607f;
-        const float year_Y = 170f;
-        const float payment_END_X = 607f;
-        const float payment_Y = 206f;
-        const float totalcost_END_X = 608f;
-        const float totalcost_Y = 240f;
+        const float Date_Y = 160f;
+        const float NAME_X = 604f;
+        const float NAME_Y = 195f;
+        const float year_END_X = 604f;
+        const float year_Y =261f;
+        const float payment_END_X = 397f;
+        const float payment_Y = 195f;
+        const float totalcost_END_X = 604f;
+        const float totalcost_Y = 229f;
 
 
 
@@ -36,7 +36,6 @@ namespace ImageOperations
         float totalcostX;
         float paymentX;
         float yearX;
-        float nameWidth;
 
 
         private static string path;

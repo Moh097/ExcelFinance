@@ -1,6 +1,7 @@
 ﻿    using ClosedXML.Excel;
     using ClosedXML.Excel.Drawings;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Drawing;
 using System.Net;
@@ -28,6 +29,8 @@ namespace ReadDataFromExcel
                     string Payment;
 
 
+              
+
 
                 IXLWorksheet sheet = workbook.Worksheet(Parameters.city);
            
@@ -35,10 +38,10 @@ namespace ReadDataFromExcel
                     {
                         ID = row.Cell(1).Value.ToString();
                         Name = row.Cell(2).Value.ToString();
-                        Address = $"{row.Cell(4).Value}-{row.Cell(5).Value}";
+                        Address = $"{row.Cell(3).Value}-{row.Cell(4).Value}";
                         TotalCost= row.Cell(10).Value.ToString();
-                        Date= row.Cell(8).Value.ToString();
-                        Payment = row.Cell(10).Value.ToString();
+                        Date = row.Cell(8).Value.ToString();
+                        Payment = row.Cell(9).Value.ToString();
 
                         Members.Add(new MemberDto(ID, Name, Address, TotalCost, Date, Payment));
                 }
