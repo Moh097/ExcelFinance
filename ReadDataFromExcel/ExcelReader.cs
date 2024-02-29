@@ -1,5 +1,5 @@
-﻿    using ClosedXML.Excel;
-    using ClosedXML.Excel.Drawings;
+﻿using ClosedXML.Excel;
+using ClosedXML.Excel.Drawings;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -27,15 +27,15 @@ namespace ReadDataFromExcel
                     string TotalCost;
                     string Date;
                     string Payment;
-
-
-              
+                    bool IsPaid;
 
 
                 IXLWorksheet sheet = workbook.Worksheet(Parameters.city);
            
                 foreach (var row in sheet.RowsUsed())
                     {
+                    if (row.Cell(11).Value.ToString() == "TRUE")
+                    { 
                         ID = row.Cell(1).Value.ToString();
                         Name = row.Cell(2).Value.ToString();
                         Address = $"{row.Cell(3).Value}-{row.Cell(4).Value}";
@@ -44,6 +44,7 @@ namespace ReadDataFromExcel
                         Payment = row.Cell(9).Value.ToString();
 
                         Members.Add(new MemberDto(ID, Name, Address, TotalCost, Date, Payment));
+                    }
                 }
               
             }

@@ -14,6 +14,7 @@ namespace ImageOperations
     public class ImageReader
     {
         const float restFONT_SIZE = 9;
+        const float serialFont_SIZE = 5;
 
         const float ADDRESS_END_X = 402f;
         const float ADDRESS_Y = 160f;
@@ -27,7 +28,8 @@ namespace ImageOperations
         const float payment_Y = 195f;
         const float totalcost_END_X = 604f;
         const float totalcost_Y = 229f;
-
+        const float serialNum_Y = 125;
+        const float serial_Num_END_X = 325;
 
 
         float nameX;
@@ -36,7 +38,7 @@ namespace ImageOperations
         float totalcostX;
         float paymentX;
         float yearX;
-
+        float serialNumX;
 
         private static string path;
         private static Image image;
@@ -48,10 +50,10 @@ namespace ImageOperations
         string IDFontPath;
         string restFontPath;
         string defImagePath;
-        static Color customColor = Color.FromArgb(0, 53, 108);
+        static Color customColor = Color.FromArgb(25, 25, 112);
         SolidBrush brush = new SolidBrush(customColor);
 
-
+        
 
         public ImageReader()
         {
@@ -133,12 +135,15 @@ namespace ImageOperations
                 using (Graphics graphics = Graphics.FromImage(clonedImage))
                 {
                     Font restFont = new Font(restFontPath, restFONT_SIZE);
+                    Font serialFont = new Font(restFontPath, serialFont_SIZE);
+
                     SizeF adressSize = graphics.MeasureString(memberDto.Address, restFont);
                     SizeF DateSize = graphics.MeasureString(memberDto.Date, restFont);
                     SizeF totalcostSize = graphics.MeasureString(memberDto.TotalCost, restFont);
                     SizeF paymentSize = graphics.MeasureString(memberDto.Payment, restFont);
                     SizeF nameSize = graphics.MeasureString(memberDto.Name, restFont);
                     SizeF yearSize = graphics.MeasureString(Parameters.year, restFont);
+                    SizeF serialSize = graphics.MeasureString(Parameters.serialNum.ToString("D8"), serialFont);
 
                     adressX = ADDRESS_END_X - adressSize.Width;
                     DateX = Date_END_X - DateSize.Width;
@@ -146,6 +151,7 @@ namespace ImageOperations
                     paymentX= payment_END_X - paymentSize.Width;
                     nameX = NAME_X - nameSize.Width;
                     yearX= year_END_X - yearSize.Width;
+                    serialNumX = serial_Num_END_X - serialSize.Width;
 
                     graphics.DrawString(memberDto.Address, restFont, brush, adressX, ADDRESS_Y);
                     graphics.DrawString(memberDto.Date, restFont, brush, DateX, Date_Y);
@@ -153,6 +159,7 @@ namespace ImageOperations
                     graphics.DrawString(memberDto.TotalCost, restFont, brush, totalcostX, totalcost_Y);
                     graphics.DrawString(memberDto.Payment, restFont, brush, paymentX, payment_Y);
                     graphics.DrawString(Parameters.year, restFont, brush, yearX, year_Y);
+                    graphics.DrawString(Parameters.serialNum.ToString("D8"), serialFont, brush, serialNumX, serialNum_Y);
 
 
                 }

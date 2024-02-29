@@ -8,12 +8,11 @@ namespace ReadDataFromExcel
 {
     public static class Parameters
     {
-      public static string excelFilePath  = "";
-      public static string city  = "";
-      public static DateTime now = DateTime.Now;
-      public static string year = now.Year.ToString();
-
-
-
+        public static string excelFilePath = "";
+        public static string city  = "";
+        public static DateTime now = DateTime.Now;
+        public static string year = now.Year.ToString();
+        public static int serialNum = 00000000;
+            
     }
 }

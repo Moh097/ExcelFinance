@@ -39,6 +39,7 @@
             txtUpload = new TextBox();
             cmbServices = new ComboBox();
             label3 = new Label();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // textBox1
@@ -136,6 +137,17 @@
             label3.Visible = false;
             label3.Click += label3_Click;
             // 
+            // textBox2
+            // 
+            textBox2.ForeColor = SystemColors.WindowText;
+            textBox2.Location = new Point(910, 185);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(268, 297);
+            textBox2.TabIndex = 12;
+            textBox2.Visible = false;
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -143,6 +155,7 @@
             BackgroundImage = Properties.Resources.main;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1258, 921);
+            Controls.Add(textBox2);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(cmbServices);
@@ -156,6 +169,7 @@
             MaximizeBox = false;
             Name = "MainWindow";
             Text = "Main";
+            Load += MainWindow_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,5 +186,6 @@
         private TextBox txtUpload;
         private ComboBox cmbServices;
         private Label label3;
+        private TextBox textBox2;
     }
 }
