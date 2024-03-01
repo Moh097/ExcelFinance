@@ -14,6 +14,8 @@ namespace AppForm
         {
             InitializeComponent();
             this.FormClosing += Form_Closing;
+            txtUpload.PlaceholderText = "  the excel file";
+            txtID.PlaceholderText = "  The Member ID ";
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -135,6 +137,21 @@ namespace AppForm
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUpload_Click(object sender, EventArgs e)
         {
 
         }

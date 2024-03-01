@@ -29,44 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            textBox1 = new TextBox();
             txtID = new TextBox();
             label1 = new Label();
             btnPrint = new Button();
             openFileDialog1 = new OpenFileDialog();
-            lblUpload = new Label();
             brnBrowse = new Button();
             txtUpload = new TextBox();
             cmbServices = new ComboBox();
             label3 = new Label();
             textBox2 = new TextBox();
+            label2 = new Label();
+            label4 = new Label();
             SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Showcard Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = SystemColors.HotTrack;
-            textBox1.Location = new Point(444, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(458, 26);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Takween Community";
-            textBox1.TextAlign = HorizontalAlignment.Center;
             // 
             // txtID
             // 
-            txtID.Location = new Point(40, 263);
+            txtID.ForeColor = Color.FromArgb(24, 42, 80);
+            txtID.Location = new Point(706, 130);
             txtID.Name = "txtID";
-            txtID.Size = new Size(243, 27);
+            txtID.Size = new Size(252, 27);
             txtID.TabIndex = 3;
             txtID.Visible = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(40, 240);
+            label1.Font = new Font("Maiandra GD", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(24, 42, 80);
+            label1.Location = new Point(706, 103);
             label1.Name = "label1";
-            label1.Size = new Size(229, 20);
+            label1.Size = new Size(252, 20);
             label1.TabIndex = 4;
             label1.Text = "Please enter the Member ID here:";
             label1.Visible = false;
@@ -74,12 +66,17 @@
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(184, 299);
+            btnPrint.BackColor = SystemColors.Window;
+            btnPrint.BackgroundImage = Properties.Resources.print1;
+            btnPrint.BackgroundImageLayout = ImageLayout.Zoom;
+            btnPrint.Font = new Font("Maiandra GD", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPrint.ForeColor = Color.WhiteSmoke;
+            btnPrint.Location = new Point(977, 124);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(94, 33);
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(42, 33);
             btnPrint.TabIndex = 5;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.UseVisualStyleBackColor = false;
             btnPrint.Visible = false;
             btnPrint.Click += btnPrint_Click;
             // 
@@ -87,28 +84,24 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // lblUpload
-            // 
-            lblUpload.AutoSize = true;
-            lblUpload.Location = new Point(45, 67);
-            lblUpload.Name = "lblUpload";
-            lblUpload.Size = new Size(193, 20);
-            lblUpload.TabIndex = 6;
-            lblUpload.Text = "Please upload the excel file:";
-            // 
             // brnBrowse
             // 
-            brnBrowse.Location = new Point(290, 91);
+            brnBrowse.BackColor = SystemColors.Window;
+            brnBrowse.BackgroundImage = Properties.Resources.uplode_icon;
+            brnBrowse.BackgroundImageLayout = ImageLayout.Zoom;
+            brnBrowse.Font = new Font("Maiandra GD", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            brnBrowse.ForeColor = SystemColors.Window;
+            brnBrowse.Location = new Point(305, 128);
             brnBrowse.Name = "brnBrowse";
-            brnBrowse.Size = new Size(94, 31);
+            brnBrowse.Size = new Size(42, 33);
             brnBrowse.TabIndex = 7;
-            brnBrowse.Text = "Browse";
-            brnBrowse.UseVisualStyleBackColor = true;
+            brnBrowse.UseVisualStyleBackColor = false;
             brnBrowse.Click += btnBrowse_Click;
             // 
             // txtUpload
             // 
-            txtUpload.Location = new Point(40, 91);
+            txtUpload.ForeColor = Color.FromArgb(24, 42, 80);
+            txtUpload.Location = new Point(56, 130);
             txtUpload.Name = "txtUpload";
             txtUpload.Size = new Size(243, 27);
             txtUpload.TabIndex = 8;
@@ -119,7 +112,7 @@
             cmbServices.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbServices.FormattingEnabled = true;
             cmbServices.Items.AddRange(new object[] { "الاردن", "تكوينية فلسطين", "المغرب العربي", "تكوينية سيدرا", "التكوينية المختلطة ( تقوى)", "تكوينية تركيا (اسيل)" });
-            cmbServices.Location = new Point(40, 185);
+            cmbServices.Location = new Point(405, 131);
             cmbServices.Name = "cmbServices";
             cmbServices.Size = new Size(238, 28);
             cmbServices.TabIndex = 10;
@@ -129,9 +122,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(40, 163);
+            label3.Font = new Font("Maiandra GD", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(24, 42, 80);
+            label3.Location = new Point(405, 102);
             label3.Name = "label3";
-            label3.Size = new Size(157, 20);
+            label3.Size = new Size(187, 21);
             label3.TabIndex = 11;
             label3.Text = "Please choose the city:";
             label3.Visible = false;
@@ -139,32 +134,58 @@
             // 
             // textBox2
             // 
-            textBox2.ForeColor = SystemColors.WindowText;
-            textBox2.Location = new Point(910, 185);
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Maiandra GD", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.ForeColor = Color.FromArgb(24, 42, 80);
+            textBox2.Location = new Point(56, 223);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(268, 297);
+            textBox2.Size = new Size(243, 344);
             textBox2.TabIndex = 12;
             textBox2.Visible = false;
             textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Maiandra GD", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(24, 42, 80);
+            label2.Location = new Point(342, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(356, 41);
+            label2.TabIndex = 13;
+            label2.Text = "Takween Community";
+            label2.Click += label2_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Maiandra GD", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(24, 42, 80);
+            label4.Location = new Point(56, 102);
+            label4.Name = "label4";
+            label4.Size = new Size(229, 21);
+            label4.TabIndex = 15;
+            label4.Text = "Please upload the excel file:";
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.main;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1258, 921);
+            BackColor = SystemColors.Window;
+            BackgroundImage = Properties.Resources.back;
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(1104, 921);
+            Controls.Add(label4);
+            Controls.Add(label2);
             Controls.Add(textBox2);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(cmbServices);
             Controls.Add(txtUpload);
             Controls.Add(brnBrowse);
-            Controls.Add(lblUpload);
             Controls.Add(btnPrint);
             Controls.Add(txtID);
-            Controls.Add(textBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainWindow";
@@ -175,17 +196,16 @@
         }
 
         #endregion
-
-        private TextBox textBox1;
         private TextBox txtID;
         private Label label1;
         private Button btnPrint;
         private OpenFileDialog openFileDialog1;
-        private Label lblUpload;
         private Button brnBrowse;
         private TextBox txtUpload;
         private ComboBox cmbServices;
         private Label label3;
         private TextBox textBox2;
+        private Label label2;
+        private Label label4;
     }
 }

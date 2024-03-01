@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using System;
 using System.Windows.Forms;
 
 namespace AppForm
@@ -9,18 +10,22 @@ namespace AppForm
         {
             InitializeComponent();
             this.FormClosing += Form_Closing;
+         
         }
+
         private void Form3_Load(object sender, EventArgs e)
         {
         }
         protected override void WndProc(ref Message m)
         {
+
             base.WndProc(ref m);
 
             const int WM_LBUTTONDOWN = 0x0201;
 
             if (m.Msg == WM_LBUTTONDOWN)
             {
+
                 // Open the Login form when the Waiting form is clicked
                 Login login = new Login();
                 login.Show();
@@ -34,6 +39,12 @@ namespace AppForm
                 Application.Exit(); // Close the application when the form is closed by clicking the X button.
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+    
 
     }
 }

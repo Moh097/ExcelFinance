@@ -17,6 +17,8 @@ namespace AppForm
             InitializeComponent();
             this.FormClosing += Form_Closing;
             txtPass.PasswordChar = '*';
+            txtUser.PlaceholderText = "  Uswename";
+            txtPass.PlaceholderText = "  Password";
         }
 
 
@@ -52,6 +54,7 @@ namespace AppForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (txtUser.Text == "admin" && txtPass.Text == "Takween2023")
             {
                 new MainWindow().Show();
@@ -70,7 +73,6 @@ namespace AppForm
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
@@ -96,6 +98,11 @@ namespace AppForm
                 btnHide.BringToFront();
                 txtPass.PasswordChar = '\0';
             }
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }
