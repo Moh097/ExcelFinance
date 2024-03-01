@@ -17,7 +17,7 @@ namespace AppForm
             InitializeComponent();
             this.FormClosing += Form_Closing;
             txtPass.PasswordChar = '*';
-            txtUser.PlaceholderText = "  Uswename";
+            txtUser.PlaceholderText = "  Username";
             txtPass.PlaceholderText = "  Password";
         }
 

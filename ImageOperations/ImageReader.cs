@@ -13,23 +13,23 @@ namespace ImageOperations
 {
     public class ImageReader
     {
-        const float restFONT_SIZE = 9;
-        const float serialFont_SIZE = 5;
+        const float restFONT_SIZE = 13;
+        const float serialFont_SIZE = 11;
 
-        const float ADDRESS_END_X = 402f;
-        const float ADDRESS_Y = 160f;
-        const float Date_END_X = 607f;
-        const float Date_Y = 160f;
-        const float NAME_X = 604f;
-        const float NAME_Y = 195f;
-        const float year_END_X = 604f;
-        const float year_Y =261f;
-        const float payment_END_X = 397f;
-        const float payment_Y = 195f;
-        const float totalcost_END_X = 604f;
-        const float totalcost_Y = 229f;
-        const float serialNum_Y = 125;
-        const float serial_Num_END_X = 325;
+        const float ADDRESS_END_X = 387f;
+        const float ADDRESS_Y = 220f;
+        const float Date_END_X = 721f;
+        const float Date_Y = 220f;
+        const float NAME_X = 721f;
+        const float NAME_Y = 275f;
+        const float year_END_X = 721f;
+        const float year_Y =381f;
+        const float payment_END_X = 387f;
+        const float payment_Y = 275f;
+        const float totalcost_END_X = 721f;
+        const float totalcost_Y = 327f;
+        const float serialNum_Y = 448f;
+        const float serial_Num_END_X = 168f;
 
 
         float nameX;
