@@ -20,23 +20,45 @@ namespace AppForm
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you wanna print for this Memeber?", "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Are you sure you wanna print for this Member?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {
+                // Assume excelReader is already defined and can retrieve a member by ID.
                 MemberDto memberDto = excelReader.GetMemberFromId(txtID.Text);
 
-                ImageReader imageReader = new ImageReader();
-                imageReader.SetTextAndPhotoData(memberDto);
-                Parameters.serialNum++;
-                MessageBox.Show("The process is done", "Done", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    // Assume ImageReader is set up to handle member data.
+                    ImageReader imageReader = new ImageReader();
+                    imageReader.SetTextAndPhotoData(memberDto);
 
-                if (memberDto == null)
-                {
-                    MessageBox.Show("Can't find ID in given Excel sheet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    // Increment the serial number.
+                    Parameters.serialNum++;
+
+                    // Update the serial number in t he file.
+                    UpdateSerialNumberInFile(Parameters.serialNum);
+
+                    // Show a message indicating the process is done.
+                    MessageBox.Show("The process is done", "Done", MessageBoxButtons.OK, MessageBoxIcon.None);
+             
             }
         }
+
+        private void UpdateSerialNumberInFile(int newSerialNum)
+        {
+            try
+            {
+                // Write the new serial number to the file, overwriting the existing content.
+                File.WriteAllText(Parameters.serialPath, newSerialNum.ToString());
+
+                // Optionally, you can add code here to handle any actions after successfully updating the file.
+            }
+            catch (Exception ex)
+            {
+                // Log or handle exceptions here as needed.
+                MessageBox.Show($"Failed to update serial number in file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
