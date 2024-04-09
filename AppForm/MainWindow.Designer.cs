@@ -111,7 +111,7 @@
             // 
             cmbServices.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbServices.FormattingEnabled = true;
-            cmbServices.Items.AddRange(new object[] { "الاردن", "تكوينية فلسطين", "المغرب العربي", "تكوينية سيدرا", "التكوينية المختلطة ( تقوى)", "تكوينية تركيا (اسيل)" });
+            cmbServices.Items.AddRange(new object[] { "الاردن", "فلسطين", "المغرب العربي", "سوريا", "مصر", "تركيا " });
             cmbServices.Location = new Point(405, 131);
             cmbServices.Name = "cmbServices";
             cmbServices.Size = new Size(238, 28);
@@ -150,11 +150,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Maiandra GD", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(24, 42, 80);
-            label2.Location = new Point(342, 19);
+            label2.Location = new Point(394, 9);
             label2.Name = "label2";
-            label2.Size = new Size(356, 41);
+            label2.Size = new Size(274, 41);
             label2.TabIndex = 13;
-            label2.Text = "Takween Community";
+            label2.Text = "payment receipt";
             label2.Click += label2_Click;
             // 
             // label4
@@ -186,6 +186,7 @@
             Controls.Add(brnBrowse);
             Controls.Add(btnPrint);
             Controls.Add(txtID);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainWindow";

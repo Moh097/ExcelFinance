@@ -54,8 +54,8 @@ namespace AppForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            if (txtUser.Text == "admin" && txtPass.Text == "Takween2023")
+
+            if (txtUser.Text == "admin" && txtPass.Text == "2024")
             {
                 new MainWindow().Show();
                 this.Hide();
@@ -101,6 +101,11 @@ namespace AppForm
         }
 
         private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }
