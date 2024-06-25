@@ -55,7 +55,7 @@ namespace AppForm
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (txtUser.Text == "admin" && txtPass.Text == "2024")
+            if (txtUser.Text == "admin" && txtPass.Text == "Takween2024")
             {
                 new MainWindow().Show();
                 this.Hide();
